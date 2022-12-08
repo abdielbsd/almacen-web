@@ -9,3 +9,8 @@ export function getUser(){
     const token = vuexLocalStore ? vuexLocalStore.almacenweb.auth.user : {}
     return token;
 }
+export function getUsers(){
+    const vuexLocalStore = JSON.parse(localStorage.getItem('almacenweb'))
+    const token = vuexLocalStore ? vuexLocalStore.almacenweb : {}
+    return token;
+}
