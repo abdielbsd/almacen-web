@@ -23,6 +23,11 @@
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
           width="100"
         />
+        <v-tabs align-with-title background-color="primary">
+          <v-tab to='/'>Start</v-tab>
+          <v-tab to='home'>Users</v-tab>
+          <v-tab to='about'>About</v-tab>
+        </v-tabs>
       </div>
 
       <v-spacer></v-spacer>
