@@ -1,5 +1,5 @@
-const vuexLocalStore = JSON.parse(localStorage.getItem('almacenweb'))
-const token = vuexLocalStore ? vuexLocalStore.almacenweb.auth.tokenAuth : ''
+import { getToken } from "@/utils/utils";
+
 export default {
-  tokenAuth: token || '',
+  tokenAuth: getToken() || '',
 }

@@ -59,7 +59,7 @@ import { mapActions} from 'vuex';
          params:{limit: 10, skip: 0, page: 1, paget:1}
     }),
     created(){
-      console.log("assaweaeaweaea ",this.params.limit);
+    //  console.log("assaweaeaweaea ",this.params.limit);
       this.cargar_datos();
 
     },
@@ -77,7 +77,7 @@ import { mapActions} from 'vuex';
 
        },
        paginate(){
-            console.log("assaweaeaweaea ",this.params.page);
+           // console.log("assaweaeaweaea ",this.params.page);
             this.params.skip=10*(this.params.page-1);
            this.cargar_datos();
        }
