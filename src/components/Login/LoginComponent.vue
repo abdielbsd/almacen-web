@@ -42,7 +42,7 @@
       </template>
     </v-snackbar>
   </v-container>
-</template>
+</template> 
   
 <script>
 import { mapActions, /*mapGetters,*/ mapMutations } from "vuex";
