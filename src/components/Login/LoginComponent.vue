@@ -72,7 +72,7 @@ export default {
 
   methods: {
     ...mapActions("auth", ["login"]),
-    ...mapMutations("auth", ["SET_TOKEN_AUTH"]),
+    ...mapMutations("auth", ["SET_TOKEN_AUTH", 'SET_USER_AUTH']),
     async validateAndSubmit() {
       if (this.$refs.form.validate()) {
         let params = {
@@ -90,12 +90,14 @@ export default {
                 almacenweb: {
                   auth: {
                     tokenAuth: res.token,
+                    user: res.user
                   },
                 },
               })
             );
           }
           this.SET_TOKEN_AUTH(res.token);
+          this.SET_USER_AUTH(res.user)
           this.$router.push({ name: "home" });
         } else {
           //console.log("ERROR AUTENTICACION");
