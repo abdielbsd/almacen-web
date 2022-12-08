@@ -7,7 +7,7 @@ export default ( async(to, from, next) => {
         console.log('PASO POR EL GUARD DE ADMIN')
         next();
       } else {
-        next({ name: "login" });
+        next({ name: "home" });
       }
     } else {
       next();
