@@ -2,12 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import authGuard from './guards/auth.guard'
+//import roleGuard from './guards/role.guard'
 
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
+  { 
     path: '/login',
     name: 'login',
     component: () => import('../views/AuthView.vue')
@@ -27,7 +28,8 @@ const routes = [
     name: 'users',
     component: () => import( '../views/UsersView.vue'),
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      //requiresAmin: true
     },
   },
 ]
@@ -39,6 +41,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach(authGuard)
+//router.beforeEach(roleGuard)
 
 
 
