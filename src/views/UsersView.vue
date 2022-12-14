@@ -1,14 +1,14 @@
 <template>
 <div>
   <v-row>
-    <v-col cols="3" >
+    <v-col xs='6' sm='5' md="4" lg='3' xl='2'>
       <v-container>
      <UsersComponent
      @user-id="handleruserId"
      />
       </v-container>
     </v-col>
-    <v-col cols="8">
+    <v-col xs='6' sm='7' md="8" lg='9' xl='2' >
       <v-container>
       <UsersCardComponent
       ref="UsersCardComponent"
