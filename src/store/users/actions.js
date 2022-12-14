@@ -23,13 +23,13 @@ export async function remove_user(__, parm) {
   return res.data;
 }
 
-export async function add_user(__, parm) {
+export async function add_user(__, parm,psw) {
   console.log("jhbjhljhu", parm)
-  const res = await axiosInstance.post(`/user/${parm.uid}`, {
+  const res = await axiosInstance.post(`/user/`, {
     role: parm.role,
     name: parm.name,
     email: parm.email,
-    password: parm.password
+    password: psw
   });
   return res.data;
 }

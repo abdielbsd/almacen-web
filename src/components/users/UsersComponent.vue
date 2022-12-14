@@ -2,10 +2,12 @@
     <v-card
     color='primary'
       dark
+      justify='center'
+      align-self="center"
     >
       <v-list flat 
-    min-height="45rem"
-  height='45rem'
+      min-height="45rem"
+      height='45rem'
       color='primary'>
       <v-list-item-group
         color="rgba(255, 255, 255, 0.5)"
@@ -27,15 +29,15 @@
       </v-list-item-group>
       </v-list>
       <v-footer
-      
        padless
       color='primary'
      >
-  <div class="text-center">
+  <div class="text-center" justify="center">
     <v-container>
       <v-row justify="center">
         <v-col cols="2">
           <v-container class="max-width"
+          justify="center"
               @click="paginate">
             <v-pagination
               v-model="params.page"
