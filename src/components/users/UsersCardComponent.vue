@@ -1,6 +1,11 @@
 <template>
 <div>
-  <v-card class="overflow-hidden" color="primary lighten-1" dark cols="12">
+
+    <v-switch
+      v-model="ifViewform"
+      :label="ifViewform ? 'Create' : 'Edit'"
+    ></v-switch>
+  <v-card class="overflow-hidden" color="primary lighten-1" dark cols="12" v-show="!ifViewform">
     <v-toolbar flat color="primary">
       <v-icon>mdi-account</v-icon>
       <v-toolbar-title class="font-weight-light">
@@ -62,7 +67,7 @@
     </v-snackbar>
   </v-card>
   
-   <v-card class="overflow-hidden" color="primary lighten-1" dark cols='12'>
+   <v-card class="overflow-hidden" color="primary lighten-1" dark cols='12'   v-show="ifViewform">
     <v-toolbar flat color="primary">
       <v-icon>mdi-account</v-icon>
       <v-toolbar-title class="font-weight-light">
@@ -129,6 +134,7 @@ export default {
     },
   },
   data: () => ({
+    ifViewform: false,
     psw1:'',
     psw2:'',
     hasSaved:{'state': 'false', msg: ''} ,
@@ -154,20 +160,7 @@ export default {
   created() {},
 
   computed: {
-    ...mapGetters("users", ["userList"]),
-    control() {
-      if (this.iseliminated) {
-        return "Delete";
-      } if(this.isEditing){
-        return "Edit";
-
-        }else { 
-          if (this.isagregated) {
-            return "add";
-          }
-      }
-      return null;
-    },
+    ...mapGetters("users", ["userList"])
   },
   methods: {
     ...mapActions("users", ["update_user","remove_user","add_user"]),
@@ -196,7 +189,7 @@ export default {
     },
     agregate(){
       if(this.psw1===this.psw2){
-        this.hasSaved.msg=  this.add_user(this.userView,this.psw1).msg;
+        this.hasSaved.msg=  this.add_user({parm: this.userView, psw: this.psw1}).msg;
       }else{
         this.hasSaved.msg="password is bad",
         this.hasSaved.state=true;

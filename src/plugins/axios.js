@@ -11,7 +11,7 @@ const headers = {
 const axiosInstance = axios.create({
     timeout: 3600000,
     //baseURL: process.env.URL_BACK,
-    baseURL: 'http://127.0.0.1:3000/api',
+    baseURL: 'http://192.168.137.1:3000/api',
     headers
 })
 

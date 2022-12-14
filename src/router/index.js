@@ -32,6 +32,10 @@ const routes = [
       requiresAmin: true
     },
   },
+  {
+    path: '*',
+    component: () => import( '../views/HomeView.vue')
+  },
 ]
 
 const router = new VueRouter({
