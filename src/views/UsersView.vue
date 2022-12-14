@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import UsersComponent from "@/components/users/UsersComponent";
+import UsersComponent from "@/components/users/UsersComponent.vue";
 import UsersCardComponent from "@/components/users/UsersCardComponent";
 
 export default {
