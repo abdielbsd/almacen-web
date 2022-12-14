@@ -1,60 +1,61 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="../src/assets/logo.svg"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-        <v-tabs align-with-title background-color="primary">
-          <v-tab to='/'>Start</v-tab>
-          <v-tab to='users'>Users</v-tab>
-          <v-tab to='about'>About</v-tab>
-        </v-tabs>
+        <v-btn class="ma-2" to="/" text>
+          <span >Home</span>
+        </v-btn>
+        <v-btn class="ma-2" v-if="viewRoute" to="users" text>
+          <span >Adm User</span>
+        </v-btn>
+        <v-btn class="ma-2" to="about" text>
+          <span >About</span>
+        </v-btn>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn to="login" text>
+        <span class="mr-2">Login</span>
       </v-btn>
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import { getUser } from "./utils/utils";
 
 export default {
-  name: 'App',
+  name: "App",
 
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
+  created() {},
+
+  computed: {
+    viewRoute() {
+      try {
+        if (this.$route.path && getUser().role === "ADMIN") {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.log("ERROR IN PARSE USER JSON");
+        return false;
+      }
+    },
+  },
 };
 </script>
